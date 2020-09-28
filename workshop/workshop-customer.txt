@@ -1,0 +1,17 @@
+# 1. Create customer table
+
+CREATE TABLE customer_1 (
+  customer_id INT PRIMARY KEY,
+  firstname NVARCHAR(100) Not Null,
+  lastname NVARCHAR(100) Not Null,
+  birthdate DATE
+);
+
+
+CREATE TABLE customer_2 (
+  customer_id INT Not Null,
+  firstname NVARCHAR(100) Not Null,
+  lastname NVARCHAR(100) Not Null,
+  birthdate DATE,
+  PRIMARY KEY(customer_id)
+);
