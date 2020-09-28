@@ -15,3 +15,17 @@ CREATE TABLE customer_2 (
   birthdate DATE,
   PRIMARY KEY(customer_id)
 );
+
+# 2. Alter customer table
+
+ALTER TABLE customer ADD score DECIMAL;
+ALTER TABLE student DROP COLUMN birthdate;
+
+# 3. Drop customer table
+
+Drop table customer;
+
+# 4. Truncate customer table
+
+Truncate table customer;
+
