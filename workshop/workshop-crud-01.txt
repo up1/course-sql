@@ -1,0 +1,41 @@
+# Prepare table customer
+DROP table customer;
+CREATE TABLE customer (
+  customer_id INT PRIMARY KEY,
+  firstname NVARCHAR(100) Not Null,
+  lastname NVARCHAR(100) Not Null,
+  birthdate DATE
+);
+
+# 1. Insert data into table
+
+INSERT INTO customer VALUES(1, 'F01', 'L01', to_date(GETDATE(), 'DD/MM/YYYY'));
+INSERT INTO student(customer_id, firstname, lastname, birthdate) VALUES(2, 'F02', 'L02', to_date(GETDATE(), 'DD/MM/YYYY'));
+INSERT INTO student(customer_id, firstname, lastname) VALUES(3, 'F03', 'L03');
+
+# 2. Read data from table
+
+SELECT * FROM customer;
+SELECT count(1) from customer;
+
+# 3. Update data
+
+// Update all rows
+UPDATE customer
+SET firstname = 'F-ALL';
+
+// Update rows by conditions
+UPDATE customer
+SET firstname = 'F-UPDATED'
+WHERE customer_id = 1;
+
+# 4. Delete data
+
+// Delete all rows
+DELETE FROM customer
+
+// Delete rows by conditions
+DELETE FROM customer
+WHERE customer_id = 3;
+
+
