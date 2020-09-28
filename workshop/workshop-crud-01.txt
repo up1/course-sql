@@ -9,9 +9,9 @@ CREATE TABLE customer (
 
 # 1. Insert data into table
 
-INSERT INTO customer VALUES(1, 'F01', 'L01', to_date(GETDATE(), 'DD/MM/YYYY'));
-INSERT INTO student(customer_id, firstname, lastname, birthdate) VALUES(2, 'F02', 'L02', to_date(GETDATE(), 'DD/MM/YYYY'));
-INSERT INTO student(customer_id, firstname, lastname) VALUES(3, 'F03', 'L03');
+INSERT INTO customer VALUES(1, 'F01', 'L01', convert(date, GETDATE()));
+INSERT INTO customer(customer_id, firstname, lastname, birthdate) VALUES(2, 'F02', 'L02', convert(date, GETDATE()));
+INSERT INTO customer(customer_id, firstname, lastname) VALUES(3, 'F03', 'L03');
 
 # 2. Read data from table
 
