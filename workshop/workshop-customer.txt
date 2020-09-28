@@ -16,6 +16,15 @@ CREATE TABLE customer_2 (
   PRIMARY KEY(customer_id)
 );
 
+// Auto increment of customer_id
+CREATE TABLE customer_3 (
+  customer_id INT Not Null IDENTITY,
+  firstname NVARCHAR(100) Not Null,
+  lastname NVARCHAR(100) Not Null,
+  birthdate DATE,
+  PRIMARY KEY(customer_id)
+);
+
 # 2. Alter customer table
 
 ALTER TABLE customer_1 ADD score DECIMAL;
