@@ -18,14 +18,14 @@ CREATE TABLE customer_2 (
 
 # 2. Alter customer table
 
-ALTER TABLE customer ADD score DECIMAL;
-ALTER TABLE student DROP COLUMN birthdate;
+ALTER TABLE customer_1 ADD score DECIMAL;
+ALTER TABLE customer_2 DROP COLUMN birthdate;
 
 # 3. Drop customer table
 
-Drop table customer;
+Drop table customer_1;
 
 # 4. Truncate customer table
 
-Truncate table customer;
+Truncate table customer_2;
 
