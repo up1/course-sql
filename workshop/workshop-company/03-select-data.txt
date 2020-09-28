@@ -4,7 +4,7 @@ FROM employee;
 
 -- Find all clients
 SELECT *
-FROM clients;
+FROM client;
 
 -- Find all employees ordered by salary
 SELECT *
