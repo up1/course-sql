@@ -50,7 +50,7 @@ CREATE TABLE tag(
     name varchar(255)
 );
 
-CREATE TABLE tag(
+CREATE TABLE post_tag(
     post_id bigint NOT NULL,
     tag_id bigint NOT NULL,
     PRIMARY KEY(post_id, tag_id)
