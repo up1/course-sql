@@ -1,0 +1,70 @@
+# 1. One to One
+
+CREATE TABLE post(
+    id bigint PRIMARY KEY,
+    title varchar(255)
+);
+
+CREATE TABLE post_details(
+    id bigint PRIMARY KEY,
+    created_by varchar(255),
+    created_on timestamp
+);
+
+ALTER TABLE
+    post_details
+ADD CONSTRAINT
+    fk_post_details_id
+FOREIGN KEY (id) REFERENCES post;
+
+
+# 2. One to Many
+
+CREATE TABLE post(
+    id bigint PRIMARY KEY,
+    title varchar(255)
+);
+
+CREATE TABLE post_comment(
+    id bigint PRIMARY KEY,
+    review varchar(255),
+    post_id bigint NOT NULL
+);
+
+ALTER TABLE
+    post_comment
+ADD CONSTRAINT
+    fk_post_comment_post_id
+FOREIGN KEY (post_id) REFERENCES post;
+
+
+# 3. Many to Many
+
+CREATE TABLE post(
+    id bigint PRIMARY KEY,
+    title varchar(255)
+);
+
+CREATE TABLE tag(
+    id bigint PRIMARY KEY,
+    name varchar(255)
+);
+
+CREATE TABLE post_tag(
+    post_id bigint NOT NULL,
+    tag_id bigint NOT NULL,
+    PRIMARY KEY(post_id, tag_id)
+);
+
+
+ALTER TABLE
+    post_tag
+ADD CONSTRAINT
+    fk_post_tag_post_id
+FOREIGN KEY (post_id) REFERENCES post;
+
+ALTER TABLE
+    post_tag
+ADD CONSTRAINT
+    fk_post_tag_tag_id
+FOREIGN KEY (tag_id) REFERENCES tag;
