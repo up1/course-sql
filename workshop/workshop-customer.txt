@@ -25,10 +25,40 @@ CREATE TABLE customer_3 (
   PRIMARY KEY(customer_id)
 );
 
+// Check constraints
+CREATE TABLE employees( 
+  employee_id INT NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  first_name VARCHAR(50),
+  salary MONEY,
+  CONSTRAINT check_employee_id
+    CHECK (employee_id BETWEEN 1 and 10000)
+);
+
+CREATE TABLE employees( 
+  employee_id INT NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  first_name VARCHAR(50),
+  salary MONEY,
+  CONSTRAINT check_salary
+    CHECK (salary > 0)
+);
+
+// Default value
+CREATE TABLE Orders (
+    ID int NOT NULL,
+    OrderNumber int NOT NULL,
+    OrderDate date DEFAULT GETDATE()
+);
+
 # 2. Alter customer table
 
 ALTER TABLE customer_1 ADD score DECIMAL;
 ALTER TABLE customer_2 DROP COLUMN birthdate;
+
+ALTER TABLE Persons
+ADD CONSTRAINT df_City
+DEFAULT 'Sandnes' FOR City;
 
 # 3. Drop customer table
 
