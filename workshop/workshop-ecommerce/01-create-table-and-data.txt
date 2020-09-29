@@ -1,10 +1,10 @@
-CREATE TABLE `categories` (
-  `CategoryID` int(11) NOT NULL,
-  `CategoryName` varchar(255) DEFAULT NULL,
-  `Description` varchar(255) DEFAULT NULL
+CREATE TABLE categories (
+  CategoryID int(11) NOT NULL,
+  CategoryName varchar(255) DEFAULT NULL,
+  Description varchar(255) DEFAULT NULL
 );
 
-INSERT INTO `categories` (`CategoryID`, `CategoryName`, `Description`) VALUES
+INSERT INTO categories (CategoryID, CategoryName, Description) VALUES
 (1, 'Beverages', 'Soft drinks, coffees, teas, beers, and ales'),
 (2, 'Condiments', 'Sweet and savory sauces, relishes, spreads, and seasonings'),
 (3, 'Confections', 'Desserts, candies, and sweet breads'),
@@ -14,17 +14,17 @@ INSERT INTO `categories` (`CategoryID`, `CategoryName`, `Description`) VALUES
 (7, 'Produce', 'Dried fruit and bean curd'),
 (8, 'Seafood', 'Seaweed and fish');
 
-CREATE TABLE `customers` (
-  `CustomerID` int(11) NOT NULL,
-  `CustomerName` varchar(255) DEFAULT NULL,
-  `ContactName` varchar(255) DEFAULT NULL,
-  `Address` varchar(255) DEFAULT NULL,
-  `City` varchar(255) DEFAULT NULL,
-  `PostalCode` varchar(255) DEFAULT NULL,
-  `Country` varchar(255) DEFAULT NULL
+CREATE TABLE customers (
+  CustomerID int(11) NOT NULL,
+  CustomerName varchar(255) DEFAULT NULL,
+  ContactName varchar(255) DEFAULT NULL,
+  Address varchar(255) DEFAULT NULL,
+  City varchar(255) DEFAULT NULL,
+  PostalCode varchar(255) DEFAULT NULL,
+  Country varchar(255) DEFAULT NULL
 );
 
-INSERT INTO `customers` (`CustomerID`, `CustomerName`, `ContactName`, `Address`, `City`, `PostalCode`, `Country`) VALUES
+INSERT INTO customers (CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country) VALUES
 (1, 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany'),
 (2, 'Ana Trujillo Emparedados y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
 (3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico'),
@@ -118,16 +118,16 @@ INSERT INTO `customers` (`CustomerID`, `CustomerName`, `ContactName`, `Address`,
 (91, 'Wolski', 'Zbyszek', 'ul. Filtrowa 68', 'Walla', '01-012', 'Poland');
 
 
-CREATE TABLE `employees` (
-  `EmployeeID` int(11) NOT NULL,
-  `LastName` varchar(255) DEFAULT NULL,
-  `FirstName` varchar(255) DEFAULT NULL,
-  `BirthDate` date DEFAULT NULL,
-  `Photo` varchar(255) DEFAULT NULL,
-  `Notes` text
+CREATE TABLE employees (
+  EmployeeID int(11) NOT NULL,
+  LastName varchar(255) DEFAULT NULL,
+  FirstName varchar(255) DEFAULT NULL,
+  BirthDate date DEFAULT NULL,
+  Photo varchar(255) DEFAULT NULL,
+  Notes text
 );
 
-INSERT INTO `employees` (`EmployeeID`, `LastName`, `FirstName`, `BirthDate`, `Photo`, `Notes`) VALUES
+INSERT INTO employees (EmployeeID, LastName, FirstName, BirthDate, Photo, Notes) VALUES
 (1, 'Davolio', 'Nancy', '1968-12-08', 'EmpID1.pic', 'Education includes a BA in psychology from Colorado State University. She also completed (The Art of the Cold Call). Nancy is a member of \'Toastmasters International\'.'),
 (2, 'Fuller', 'Andrew', '1952-02-19', 'EmpID2.pic', 'Andrew received his BTS commercial and a Ph.D. in international marketing from the University of Dallas. He is fluent in French and Italian and reads German. He joined the company as a sales representative, was promoted to sales manager and was then named vice president of sales. Andrew is a member of the Sales Management Roundtable, the Seattle Chamber of Commerce, and the Pacific Rim Importers Association.'),
 (3, 'Leverling', 'Janet', '1963-08-30', 'EmpID3.pic', 'Janet has a BS degree in chemistry from Boston College). She has also completed a certificate program in food retailing management. Janet was hired as a sales associate and was promoted to sales representative.'),
@@ -140,15 +140,15 @@ INSERT INTO `employees` (`EmployeeID`, `LastName`, `FirstName`, `BirthDate`, `Ph
 (10, 'West', 'Adam', '1928-09-19', 'EmpID10.pic', 'An old chum.');
 
 
-CREATE TABLE `orders` (
-  `OrderID` int(11) NOT NULL,
-  `CustomerID` int(11) DEFAULT NULL,
-  `EmployeeID` int(11) DEFAULT NULL,
-  `OrderDate` date DEFAULT NULL,
-  `ShipperID` int(11) DEFAULT NULL
+CREATE TABLE orders (
+  OrderID int(11) NOT NULL,
+  CustomerID int(11) DEFAULT NULL,
+  EmployeeID int(11) DEFAULT NULL,
+  OrderDate date DEFAULT NULL,
+  ShipperID int(11) DEFAULT NULL
 );
 
-INSERT INTO `orders` (`OrderID`, `CustomerID`, `EmployeeID`, `OrderDate`, `ShipperID`) VALUES
+INSERT INTO orders (OrderID, CustomerID, EmployeeID, OrderDate, ShipperID) VALUES
 (10248, 90, 5, '2019-07-04', 3),
 (10249, 81, 6, '2019-07-05', 1),
 (10250, 34, 4, '2019-07-08', 2),
@@ -346,14 +346,14 @@ INSERT INTO `orders` (`OrderID`, `CustomerID`, `EmployeeID`, `OrderDate`, `Shipp
 (10442, 20, 3, '2020-02-11', 2),
 (10443, 66, 8, '2020-02-12', 1);
 
-CREATE TABLE `order_details` (
-  `OrderDetailID` int(11) NOT NULL,
-  `OrderID` int(11) DEFAULT NULL,
-  `ProductID` int(11) DEFAULT NULL,
-  `Quantity` int(11) DEFAULT NULL
+CREATE TABLE order_details (
+  OrderDetailID int(11) NOT NULL,
+  OrderID int(11) DEFAULT NULL,
+  ProductID int(11) DEFAULT NULL,
+  Quantity int(11) DEFAULT NULL
 );
 
-INSERT INTO `order_details` (`OrderDetailID`, `OrderID`, `ProductID`, `Quantity`) VALUES
+INSERT INTO order_details (OrderDetailID, OrderID, ProductID, Quantity) VALUES
 (1, 10248, 11, 12),
 (2, 10248, 42, 10),
 (3, 10248, 72, 5),
@@ -873,16 +873,16 @@ INSERT INTO `order_details` (`OrderDetailID`, `OrderID`, `ProductID`, `Quantity`
 (517, 10443, 11, 6),
 (518, 10443, 28, 12);
 
-CREATE TABLE `products` (
-  `ProductID` int(11) NOT NULL,
-  `ProductName` varchar(255) DEFAULT NULL,
-  `SupplierID` int(11) DEFAULT NULL,
-  `CategoryID` int(11) DEFAULT NULL,
-  `Unit` varchar(255) DEFAULT NULL,
-  `Price` double DEFAULT NULL
+CREATE TABLE products (
+  ProductID int(11) NOT NULL,
+  ProductName varchar(255) DEFAULT NULL,
+  SupplierID int(11) DEFAULT NULL,
+  CategoryID int(11) DEFAULT NULL,
+  Unit varchar(255) DEFAULT NULL,
+  Price double DEFAULT NULL
 );
 
-INSERT INTO `products` (`ProductID`, `ProductName`, `SupplierID`, `CategoryID`, `Unit`, `Price`) VALUES
+INSERT INTO products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price) VALUES
 (1, 'Chais', 1, 1, '10 boxes x 20 bags', 18),
 (2, 'Chang', 1, 1, '24 - 12 oz bottles', 19),
 (3, 'Aniseed Syrup', 1, 2, '12 - 550 ml bottles', 10),
@@ -961,29 +961,29 @@ INSERT INTO `products` (`ProductID`, `ProductName`, `SupplierID`, `CategoryID`, 
 (76, 'Lakkalikööri', 23, 1, '500 ml', 18),
 (77, 'Original Frankfurter grüne Soße', 12, 2, '12 boxes', 13);
 
-CREATE TABLE `shippers` (
-  `ShipperID` int(11) NOT NULL,
-  `ShipperName` varchar(255) DEFAULT NULL,
-  `Phone` varchar(255) DEFAULT NULL
+CREATE TABLE shippers (
+  ShipperID int(11) NOT NULL,
+  ShipperName varchar(255) DEFAULT NULL,
+  Phone varchar(255) DEFAULT NULL
 );
 
-INSERT INTO `shippers` (`ShipperID`, `ShipperName`, `Phone`) VALUES
+INSERT INTO shippers (ShipperID, ShipperName, Phone) VALUES
 (1, 'Speedy Express', '(503) 555-9831'),
 (2, 'United Package', '(503) 555-3199'),
 (3, 'Federal Shipping', '(503) 555-9931');
 
-CREATE TABLE `suppliers` (
-  `SupplierID` int(11) NOT NULL,
-  `SupplierName` varchar(255) DEFAULT NULL,
-  `ContactName` varchar(255) DEFAULT NULL,
-  `Address` varchar(255) DEFAULT NULL,
-  `City` varchar(255) DEFAULT NULL,
-  `PostalCode` varchar(255) DEFAULT NULL,
-  `Country` varchar(255) DEFAULT NULL,
-  `Phone` varchar(255) DEFAULT NULL
+CREATE TABLE suppliers (
+  SupplierID int(11) NOT NULL,
+  SupplierName varchar(255) DEFAULT NULL,
+  ContactName varchar(255) DEFAULT NULL,
+  Address varchar(255) DEFAULT NULL,
+  City varchar(255) DEFAULT NULL,
+  PostalCode varchar(255) DEFAULT NULL,
+  Country varchar(255) DEFAULT NULL,
+  Phone varchar(255) DEFAULT NULL
 );
 
-INSERT INTO `suppliers` (`SupplierID`, `SupplierName`, `ContactName`, `Address`, `City`, `PostalCode`, `Country`, `Phone`) VALUES
+INSERT INTO suppliers (SupplierID, SupplierName, ContactName, Address, City, PostalCode, Country, Phone) VALUES
 (1, 'Exotic Liquid', 'Charlotte Cooper', '49 Gilbert St.', 'Londona', 'EC1 4SD', 'UK', '(171) 555-2222'),
 (2, 'New Orleans Cajun Delights', 'Shelley Burke', 'P.O. Box 78934', 'New Orleans', '70117', 'USA', '(100) 555-4822'),
 (3, 'Grandma Kelly\'s Homestead', 'Regina Murphy', '707 Oxford Rd.', 'Ann Arbor', '48104', 'USA', '(313) 555-5735'),

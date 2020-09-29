@@ -1,78 +1,78 @@
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`CategoryID`);
+ALTER TABLE categories
+  ADD PRIMARY KEY (CategoryID);
 
-ALTER TABLE `customers`
-  ADD PRIMARY KEY (`CustomerID`);
+ALTER TABLE customers
+  ADD PRIMARY KEY (CustomerID);
 
-ALTER TABLE `employees`
-  ADD PRIMARY KEY (`EmployeeID`);
+ALTER TABLE employees
+  ADD PRIMARY KEY (EmployeeID);
 
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`OrderID`),
-  ADD KEY `CustomerID` (`CustomerID`),
-  ADD KEY `EmployeeID` (`EmployeeID`),
-  ADD KEY `ShipperID` (`ShipperID`);
+ALTER TABLE orders
+  ADD PRIMARY KEY (OrderID),
+  ADD KEY CustomerID (CustomerID),
+  ADD KEY EmployeeID (EmployeeID),
+  ADD KEY ShipperID (ShipperID);
 
-ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`OrderDetailID`),
-  ADD KEY `OrderID` (`OrderID`),
-  ADD KEY `ProductID` (`ProductID`);
+ALTER TABLE order_details
+  ADD PRIMARY KEY (OrderDetailID),
+  ADD KEY OrderID (OrderID),
+  ADD KEY ProductID (ProductID);
 
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`ProductID`),
-  ADD KEY `CategoryID` (`CategoryID`),
-  ADD KEY `SupplierID` (`SupplierID`);
+ALTER TABLE products
+  ADD PRIMARY KEY (ProductID),
+  ADD KEY CategoryID (CategoryID),
+  ADD KEY SupplierID (SupplierID);
 
-ALTER TABLE `shippers`
-  ADD PRIMARY KEY (`ShipperID`);
-
-
-ALTER TABLE `suppliers`
-  ADD PRIMARY KEY (`SupplierID`);
-
-ALTER TABLE `categories`
-  MODIFY `CategoryID` int(11) NOT NULL IDENTITY(9,1);
-
-ALTER TABLE `customers`
-  MODIFY `CustomerID` int(11) NOT NULL IDENTITY(92,1);
+ALTER TABLE shippers
+  ADD PRIMARY KEY (ShipperID);
 
 
-ALTER TABLE `employees`
-  MODIFY `EmployeeID` int(11) NOT NULL IDENTITY(11,1);
+ALTER TABLE suppliers
+  ADD PRIMARY KEY (SupplierID);
 
-ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL IDENTITY(10444,1);
+ALTER TABLE categories
+  MODIFY CategoryID int(11) NOT NULL IDENTITY(9,1);
 
-ALTER TABLE `order_details`
-  MODIFY `OrderDetailID` int(11) NOT NULL IDENTITY(519,1);
-
-
-ALTER TABLE `products`
-  MODIFY `ProductID` int(11) NOT NULL IDENTITY(78,1);
+ALTER TABLE customers
+  MODIFY CustomerID int(11) NOT NULL IDENTITY(92,1);
 
 
-ALTER TABLE `shippers`
-  MODIFY `ShipperID` int(11) NOT NULL IDENTITY(4,1);
+ALTER TABLE employees
+  MODIFY EmployeeID int(11) NOT NULL IDENTITY(11,1);
+
+ALTER TABLE orders
+  MODIFY OrderID int(11) NOT NULL IDENTITY(10444,1);
+
+ALTER TABLE order_details
+  MODIFY OrderDetailID int(11) NOT NULL IDENTITY(519,1);
 
 
-ALTER TABLE `suppliers`
-  MODIFY `SupplierID` int(11) NOT NULL IDENTITY(30,1);
+ALTER TABLE products
+  MODIFY ProductID int(11) NOT NULL IDENTITY(78,1);
+
+
+ALTER TABLE shippers
+  MODIFY ShipperID int(11) NOT NULL IDENTITY(4,1);
+
+
+ALTER TABLE suppliers
+  MODIFY SupplierID int(11) NOT NULL IDENTITY(30,1);
 
 --
 -- Constraints for dumped tables
 --
 
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`EmployeeID`) REFERENCES `employees` (`EmployeeID`),
-  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`ShipperID`) REFERENCES `shippers` (`ShipperID`);
+ALTER TABLE orders
+  ADD CONSTRAINT orders_ibfk_1 FOREIGN KEY (CustomerID) REFERENCES customers (CustomerID),
+  ADD CONSTRAINT orders_ibfk_2 FOREIGN KEY (EmployeeID) REFERENCES employees (EmployeeID),
+  ADD CONSTRAINT orders_ibfk_3 FOREIGN KEY (ShipperID) REFERENCES shippers (ShipperID);
 
 
-ALTER TABLE `order_details`
-  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `orders` (`OrderID`),
-  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `products` (`ProductID`);
+ALTER TABLE order_details
+  ADD CONSTRAINT order_details_ibfk_1 FOREIGN KEY (OrderID) REFERENCES orders (OrderID),
+  ADD CONSTRAINT order_details_ibfk_2 FOREIGN KEY (ProductID) REFERENCES products (ProductID);
 
 
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `categories` (`CategoryID`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`SupplierID`) REFERENCES `suppliers` (`SupplierID`);
+ALTER TABLE products
+  ADD CONSTRAINT products_ibfk_1 FOREIGN KEY (CategoryID) REFERENCES categories (CategoryID),
+  ADD CONSTRAINT products_ibfk_2 FOREIGN KEY (SupplierID) REFERENCES suppliers (SupplierID);
