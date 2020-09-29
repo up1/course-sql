@@ -879,7 +879,7 @@ CREATE TABLE products (
   SupplierID int DEFAULT NULL,
   CategoryID int DEFAULT NULL,
   Unit varchar(255) DEFAULT NULL,
-  Price double DEFAULT NULL
+  Price real DEFAULT NULL
 );
 
 INSERT INTO products (ProductID, ProductName, SupplierID, CategoryID, Unit, Price) VALUES
