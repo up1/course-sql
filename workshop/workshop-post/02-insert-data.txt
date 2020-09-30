@@ -1,0 +1,40 @@
+# 1. Post table
+
+insert into post values (1, 'post 01');
+insert into post values (2, 'post 02');
+insert into post values (3, 'post 03');
+insert into post values (4, 'post 04');
+insert into post values (5, 'post 05');
+
+# 2. Post_details table
+
+insert into post_details(id, created_by) values(1, 'admin');
+insert into post_details(id, created_by) values(2, 'user');
+insert into post_details(id, created_by) values(3, 'admin');
+
+# 3. Post_comment table
+
+insert into post_comment values (1, 'comment 1 post 1', 1);
+insert into post_comment values (2, 'comment 2 post 1', 1);
+insert into post_comment values (3, 'comment 3 post 1', 1);
+insert into post_comment values (4, 'comment 1 post 3', 3);
+insert into post_comment values (5, 'comment 3 post 1', 3);
+insert into post_comment values (6, 'comment 1 post 4', 4);
+insert into post_comment values (7, 'comment 3 post 5', 5);
+insert into post_comment values (3, 'comment 1 post 3', 3);
+
+# 4. Tag table
+
+insert into tag values (1, 'tag 1');
+insert into tag values (2, 'tag 2');
+insert into tag values (3, 'tag 3');
+
+# 5. Post_tag table
+
+insert into post_tag values (1, 1);
+insert into post_tag values (1, 2);
+insert into post_tag values (1, 3);
+insert into post_tag values (2, 2);
+insert into post_tag values (2, 3);
+insert into post_tag values (5, 1);
+insert into post_tag values (5, 3);
