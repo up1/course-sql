@@ -1,0 +1,86 @@
+# ดึงข้อมูล post ที่มี detail
+select post.*
+from post, post_details
+where post.id = post_details.id
+
+
+# ดึงข้อมูล post ที่มี comment
+select post.*
+from post, post_comment
+where post.id = post_comment.post_id
+
+select distinct post.*
+from post, post_comment
+where post.id = post_comment.post_id
+
+
+# ดึงข้อมูล post ที่มี tag
+select post.*
+from post, tag, post_tag
+where post.id = post_tag.post_id
+and   tag.id = post_tag.tag_id
+
+
+select distinct post.*
+from post, tag, post_tag
+where post.id = post_tag.post_id
+and   tag.id = post_tag.tag_id
+
+
+# ดึงข้อมูล tag ที่ใช้ใน post
+
+select distinct tag.*
+from post, tag, post_tag
+where post.id = post_tag.post_id
+and   tag.id = post_tag.tag_id
+
+
+# ดึงข้อมูลของ post comment ของ post อยู่ใน tag 1
+
+select  post_comment.*
+from post, tag, post_tag, post_comment
+where post.id = post_tag.post_id
+and   tag.id = post_tag.tag_id
+and   post.id = post_comment.post_id
+
+select  distinct post_comment.*
+from post, tag, post_tag, post_comment
+where post.id = post_tag.post_id
+and   tag.id = post_tag.tag_id
+and   post.id = post_comment.post_id
+
+
+# นับจำนวน comment ในแต่ละ post
+
+select post.id, count(*) as comment_count
+from post, post_comment
+where post.id = post_comment.post_id
+group by post.id
+
+
+select post.id, count(*) as comment_count
+from post
+left join post_comment on post.id = post_comment.post_id
+group by post.id
+
+
+select post.id, count(post_comment.post_id) as comment_count
+from post
+left join post_comment on post.id = post_comment.post_id
+group by post.id
+
+# นับจำนวน tag ในแต่ละ post
+
+select post.id, count(tag.id) as tag_count
+from post
+left join post_tag on post.id = post_tag.post_id
+left join tag on post_tag.tag_id = tag.id
+group by post.id
+
+# นับจำนวนของ post ในแต่ละ tag
+
+select tag.id, count(tag.id) as post_count
+from tag
+left join post_tag on tag.id = post_tag.tag_id 
+left join post on post_tag.post_id = post.id
+group by tag.id
