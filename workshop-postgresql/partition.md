@@ -24,6 +24,22 @@ CREATE TABLE iot_data_week2_2021 PARTITION OF iot_data
 FOR VALUES FROM ('2021-01-09') TO ('2021-01-16');
 ```
 
+Insert data and query data
+```
+insert into iot_data (location_id, measure_date, temp_celcius)
+    values (1, date('2021-01-01'), 1),
+           (1, date('2021-01-01'), 2),
+           (1, date('2021-01-01'), 3),
+           (2, date('2021-01-01'), 4),
+           (2, date('2021-01-01'), 5);
+		   
+select * from iot_data	
+
+select * from iot_data_week1_2021
+
+select * from iot_data_week2_2021
+```
+
 ## Partition data by list
 
 Create table products
