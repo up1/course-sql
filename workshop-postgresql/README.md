@@ -15,3 +15,6 @@
 ## Step 5 :: Partition data
 * See [instruction](https://github.com/up1/course-sql/blob/master/workshop-postgresql/partition.md)
 
+## Step 6 :: Replication (logical)
+* See [instruction](https://github.com/up1/course-sql/blob/master/workshop-postgresql/replication/README.md)
+
