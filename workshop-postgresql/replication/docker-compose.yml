@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  db-master:
+    image: postgres:13.1-alpine
+    container_name: master
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: example
+    volumes:
+      - ./master-schema.sql:/docker-entrypoint-initdb.d/1.sql
+      - pg-data-master:/var/lib/postgresql/data
+    command: ['postgres', '-c', 'wal_level=logical']
+
+  db-replica:
+    image: postgres:13.1-alpine
+    container_name: replica
+    restart: always
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: example
+    volumes:
+      - ./replica-schema.sql:/docker-entrypoint-initdb.d/1.sql
+      - pg-data-rep:/var/lib/postgresql/data
+
+volumes:
+  pg-data-master:
+  pg-data-rep:
