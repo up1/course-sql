@@ -1,4 +1,24 @@
 # Course :: SQL for everyone
+* Database models
+  * Relational
+  * NoSQL
+    * Column-based
+    * Key-values
+    * Document-based
+    * Graph
+    * Time-series
+
+* Database design
+  * Normalization
+  * Denormalization
+  * Design for read vs write
+
+* Scaling
+  * Scale up vs Scale out
+  * Partition
+  * Sharding
+  * Master-slave
+  * Cluster
 
 
 ## Workshop
